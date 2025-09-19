@@ -4,6 +4,7 @@ site_url: https://RicardolCarvalho.github.io/PlataformasIndv/
 repo_url: https://github.com/RicardolCarvalho/PlataformasIndv
 repo_name: github/PlataformasIndv
 
+
 theme:
   name: material
   palette:
