@@ -10,6 +10,7 @@ mkdocs-git-committers-plugin-2
 mkdocs-git-revision-date-localized-plugin
 mkdocs-render-swagger-plugin
 mkdocs-jupyter
+mkdocs-pdf
 termynal
 matplotlib
 numpy
