@@ -108,8 +108,7 @@ order-service/
         ```
 
     === "Postman"
-
-    ![](./img/create_order.png){ width=100% }
+        ![](./img/create_order.png){ width=100% }
 
 !!! info "GET /order"
 
