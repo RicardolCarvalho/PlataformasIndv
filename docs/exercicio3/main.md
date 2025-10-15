@@ -50,39 +50,9 @@ Using FastAPI[^1] (or other framework) on Python :material-information-outline:{
         ```bash
         Response code: 200 (ok)
         ```
-
-The API should use a third-party API to get the exchange rates. You can use the free tier of the API, e.g.:
-
-- [AwesomeAPI](https://github.com/awesomeapibrasil/economy-api){target="_blank"};
-- [ExchangeRate-API](https://www.exchangerate-api.com/){target="_blank"};
-- [Open Exchange Rates](https://openexchangerates.org/){target="_blank"};
-- [CurrencyLayer](https://currencylayer.com/){target="_blank"};
-- any other API.
-
-Or, you can scrape the data from a website.
-
-!!! tip "Hint"
-
-    You can use the `requests` library to make HTTP requests to the third-party API.
-
-
----
-
-!!! danger "Entrega"
-
-    Individualmente, cada aluno deve criar um repositório no GitHub, com a documentação em MkDocs dos exercícios realizados e também com o projeto e entrega o link via BlabkBoard. Na documentação publicada deve constar:
-
-    - Nome do aluno e grupo;
-    - Documentação das atividades realizadas;
-    - Código fonte das atividades realizadas;
-    - Documentação do projeto;
-    - Código fonte do projeto;
-    - Link para todos os repositórios utilizados;
-    - Destaques para os bottlenecks implementados (ao menos 2 por indivíduo);
-    - Apresentação do projeto;
-    - Vídeo de apresentação do projeto (2-3 minutos);
-    
-    Um template de documentação pode ser encontrado em [Template de Documentação](https://hsandmann.github.io/documentation.template/){target="_blank"}.
-
+    === "Postman BRL"
+        ![](./img/USD_BRL.png){ width=100% }
+    === "Postman EUR"
+        ![](./img/USD_EUR.png){ width=100% }
 
 > This MkDocs was created by [Ricardo Luz Carvalho](https://github.com/RicardolCarvalho)

@@ -85,6 +85,10 @@ flowchart LR
         Response code: 400 (bad request), if the product does not exist.
         ```
 
+    === "Postman"
+
+    ![](./img/create_order.png){ width=100% }
+
 !!! info "GET /order"
 
     Get all orders **for the current user**.
@@ -109,6 +113,8 @@ flowchart LR
         ```bash
         Response code: 200 (ok)
         ```
+    === "Postman"
+        ![](./img/list_order.png){ width=100% }
 
 !!! info "GET /order/{id}"
 
@@ -145,5 +151,8 @@ flowchart LR
         Response code: 200 (ok)
         Response code: 404 (not found), if the order does not belong to the current user.
         ```
+
+    === "Postman"
+        ![](./img/get_orderid.png){ width=100% }
 
 > This MkDocs was created by [Ricardo Luz Carvalho](https://github.com/RicardolCarvalho)

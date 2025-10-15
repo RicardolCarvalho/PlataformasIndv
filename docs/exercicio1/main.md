@@ -85,6 +85,8 @@ The API should have the following endpoints:
         ```bash
         Response code: 201 (created)
         ```
+    === "Postman"
+        ![](./img/post_produto.png){ width=100% }
 
 !!! info "GET /product"
 
@@ -111,6 +113,8 @@ The API should have the following endpoints:
         ```bash
         Response code: 200 (ok)
         ```
+    === "Postman"
+        ![](./img/get_produto.png){ width=100% }
 
 !!! info "GET /product/{id}"
 
@@ -129,6 +133,8 @@ The API should have the following endpoints:
         ```bash
         Response code: 200 (ok)
         ```
+    === "Postman"
+        ![](./img/get_produtoid.png){ width=100% }
 
 !!! info "DELETE /product/{id}"
 
