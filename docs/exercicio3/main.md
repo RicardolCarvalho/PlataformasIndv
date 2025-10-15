@@ -26,12 +26,15 @@ flowchart LR
     click product "#product-api" "Product API"
 ```
 
-!!! warning "Attention"
-
-    **To consume the API, the user must be authenticated.**
-
-
-Using FastAPI[^1] (or other framework) on Python :material-information-outline:{ title="Python is mandatory!" }, create a REST API that allows the user to convert between currencies. The API should have the following endpoints:
+# Repositórios
+- [Exchange](https://github.com/RicardolCarvalho/exchange)
+```bash
+exchange/
+├── main.py
+├── requirements.txt
+├── Dockerfile
+├── .gitignore
+```
 
 !!! info "GET /exchange/{from}/{to}"
 

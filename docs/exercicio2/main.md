@@ -25,10 +25,32 @@ flowchart LR
     click order "#order-api" "Order API"
 ```
 
-!!! warning "Attention"
+# Repositórios
+- [Order](https://github.com/RicardolCarvalho/order)
+```bash
+order/
+├── OrderController.java
+├── OrderIn.java
+├── OrderItemIn.java
+├── OrderItemOut.java
+├── OrderOut.java
+```
 
-    **To consume the API, the user must be authenticated.**
 
+- [Order-service](https://github.com/RicardolCarvalho/order-service)
+
+```bash
+order-service/
+├── CurrentRequest.java
+├── CurrentUser.java
+├── FeignAuth.java
+├── Order.java
+├── OrderApplication.java
+├── OrderParser.java
+├── OrderRepository.java
+├── OrderResource.java
+├── OrderService.java
+```
 
 ## Order API
 
