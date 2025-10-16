@@ -1,5 +1,4 @@
 
-Create a RESTful API for a store. The API should have two main resources: `product` and `order`.
 
 ``` mermaid
 flowchart LR
@@ -26,33 +25,124 @@ flowchart LR
     click product "#product-api" "Product API"
 ```
 
-!!! warning "Attention"
-
-    **To consume the API, the user must be authenticated.**
-
 ## Repositórios
-- [Product](https://github.com/RicardolCarvalho/product)
 
+### 1. Product Repository
+**Link:** [https://github.com/RicardolCarvalho/product](https://github.com/RicardolCarvalho/product)
+
+**Estrutura do projeto:**
 ```bash
 product/
-├── ProductController.java
-├── ProductIn.java
-├── ProductOut.java
+├── src/main/java/store/product/
+│   ├── ProductController.java
+│   ├── ProductIn.java
+│   └── ProductOut.java
+├── pom.xml
+└── .gitignore
 ```
 
-- [Product-service](https://github.com/RicardolCarvalho/product-service)
+### 2. Product Service Repository
+**Link:** [https://github.com/RicardolCarvalho/product-service](https://github.com/RicardolCarvalho/product-service)
 
+**Descrição:** Repositório contendo a implementação completa do microserviço de produtos com Spring Boot.
+
+**Estrutura do projeto:**
 ```bash
 product-service/
-├── Product.java
-├── ProductApplication.java
-├── ProductModel.java
-├── ProductParser.java
-├── ProductRepository.java
-├── ProductResource.java
-├── ProductService.java
+├── src/main/
+│   ├── Product.java
+│   ├── ProductApplication.java
+│   ├── ProductModel.java
+│   ├── ProductParser.java
+│   ├── ProductRepository.java
+│   ├── ProductResource.java
+│   └── ProductService.java
+├── DockerFile
+├── pom.xml
+└── .gitignore
 ```
 
+## Código Fonte das Atividades
+
+### Principais Componentes Implementados
+
+#### 1. ProductController.java
+Controlador REST responsável por expor os endpoints da API de produtos:
+
+```java
+@RestController
+@RequestMapping("/product")
+public class ProductController {
+    
+    @Autowired
+    private ProductService productService;
+    
+    @PostMapping
+    public ResponseEntity<ProductOut> createProduct(@RequestBody ProductIn productIn) {
+    }
+    
+    @GetMapping
+    public ResponseEntity<List<ProductOut>> getAllProducts() {
+    }
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductOut> getProductById(@PathVariable String id) {
+    }
+    
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable String id) {
+    }
+}
+```
+
+#### 2. Product.java (Entidade)
+Entidade JPA representando um produto no banco de dados:
+
+```java
+@Entity
+@Table(name = "products")
+public class Product {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
+    
+    @Column(nullable = false)
+    private String name;
+    
+    @Column(nullable = false)
+    private Double price;
+    
+    @Column(nullable = false)
+    private String unit;
+}
+```
+
+#### 3. ProductService.java
+Camada de serviço contendo a lógica de negócio:
+
+```java
+@Service
+public class ProductService {
+    
+    @Autowired
+    private ProductRepository productRepository;
+    
+    public ProductOut createProduct(ProductIn productIn) {
+        Product product = ProductParser.toEntity(productIn);
+        Product savedProduct = productRepository.save(product);
+        return ProductParser.toOut(savedProduct);
+    }
+    
+    public List<ProductOut> getAllProducts() {
+        List<Product> products = productRepository.findAll();
+        return products.stream()
+                .map(ProductParser::toOut)
+                .collect(Collectors.toList());
+    }
+
+}
+```
 
 ## Product API
 
@@ -143,5 +233,10 @@ The API should have the following endpoints:
     ```bash
     Response code: 204 (no content)
     ```
+
+## Vídeo de Apresentação
+
+### Link do Vídeo: [https://www.youtube.com/watch?v=dQw4w9WgXcQ](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+---
 
 > This MkDocs was created by [Ricardo Luz Carvalho](https://github.com/RicardolCarvalho)

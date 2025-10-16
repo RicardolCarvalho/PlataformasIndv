@@ -1,4 +1,4 @@
-
+# Exercício 2 - Order API
 
 ``` mermaid
 flowchart LR
@@ -25,31 +25,165 @@ flowchart LR
     click order "#order-api" "Order API"
 ```
 
-# Repositórios
-- [Order](https://github.com/RicardolCarvalho/order)
+## Repositórios
+
+### 1. Order Repository
+**Link:** [https://github.com/RicardolCarvalho/order](https://github.com/RicardolCarvalho/order)
+
+**Estrutura do projeto:**
 ```bash
 order/
-├── OrderController.java
-├── OrderIn.java
-├── OrderItemIn.java
-├── OrderItemOut.java
-├── OrderOut.java
+├── src/main/java/store/order/
+│   ├── OrderController.java
+│   ├── OrderIn.java
+│   ├── OrderItemIn.java
+│   ├── OrderItemOut.java
+│   └── OrderOut.java
+├── pom.xml
+└── .gitignore
 ```
 
+### 2. Order Service Repository
+**Link:** [https://github.com/RicardolCarvalho/order-service](https://github.com/RicardolCarvalho/order-service)
 
-- [Order-service](https://github.com/RicardolCarvalho/order-service)
-
+**Estrutura do projeto:**
 ```bash
 order-service/
-├── CurrentRequest.java
-├── CurrentUser.java
-├── FeignAuth.java
-├── Order.java
-├── OrderApplication.java
-├── OrderParser.java
-├── OrderRepository.java
-├── OrderResource.java
-├── OrderService.java
+├── src/main/
+│   ├── FeignAuth.java
+│   ├── Order.java
+│   ├── OrderApplication.java
+│   ├── OrderItem.java
+│   ├── OrderItemModel.java
+│   ├── OrderModel.java
+│   ├── OrderParser.java
+│   ├── OrderRepository.java
+│   ├── OrderRequest.java
+│   ├── OrderResource.java
+│   └── OrderService.java
+├── DockerFile
+├── pom.xml
+└── .gitignore
+```
+
+## Código Fonte das Atividades
+
+### Principais Componentes Implementados
+
+#### 1. OrderController.java
+Controlador REST responsável por expor os endpoints da API de pedidos:
+
+```java
+@RestController
+@RequestMapping("/order")
+public class OrderController {
+    
+    @Autowired
+    private OrderService orderService;
+    
+    @PostMapping
+    public ResponseEntity<OrderOut> createOrder(@RequestBody OrderIn orderIn) {
+        OrderOut order = orderService.createOrder(orderIn);
+        return ResponseEntity.status(201).body(order);
+    }
+    
+    @GetMapping
+    public ResponseEntity<List<OrderOut>> getAllOrders() {
+        List<OrderOut> orders = orderService.getOrdersByCurrentUser();
+        return ResponseEntity.ok(orders);
+    }
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<OrderOut> getOrderById(@PathVariable String id) {
+        OrderOut order = orderService.getOrderById(id);
+        return ResponseEntity.ok(order);
+    }
+}
+```
+
+#### 2. Order.java (Entidade)
+Entidade JPA representando um pedido no banco de dados:
+
+```java
+@Entity
+@Table(name = "orders")
+public class Order {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
+    
+    @Column(nullable = false)
+    private String userId;
+    
+    @Column(nullable = false)
+    private LocalDateTime date;
+    
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<OrderItem> items;
+    
+    @Column(nullable = false)
+    private Double total;
+}
+```
+
+#### 3. OrderService.java
+Camada de serviço contendo a lógica de negócio para pedidos:
+
+```java
+@Service
+public class OrderService {
+    
+    @Autowired
+    private OrderRepository orderRepository;
+    
+    @Autowired
+    private CurrentUser currentUser;
+    
+    @Autowired
+    private FeignAuth feignAuth;
+    
+    public OrderOut createOrder(OrderIn orderIn) {
+        validateProducts(orderIn.getItems());
+        
+        Order order = new Order();
+        order.setUserId(currentUser.getId());
+        order.setDate(LocalDateTime.now());
+        
+        List<OrderItem> items = processOrderItems(orderIn.getItems(), order);
+        order.setItems(items);
+        
+        double total = items.stream()
+                .mapToDouble(OrderItem::getTotal)
+                .sum();
+        order.setTotal(total);
+        
+        Order savedOrder = orderRepository.save(order);
+        return OrderParser.toOut(savedOrder);
+    }
+    
+    public List<OrderOut> getOrdersByCurrentUser() {
+        List<Order> orders = orderRepository.findByUserId(currentUser.getId());
+        return orders.stream()
+                .map(OrderParser::toOut)
+                .collect(Collectors.toList());
+    }
+}
+```
+
+#### 4. FeignAuth.java (Cliente de Integração)
+
+```java
+@FeignClient(name = "auth-service", url = "${auth.service.url}")
+public interface FeignAuth {
+    
+    @GetMapping("/product/{id}")
+    ProductOut getProduct(@PathVariable String id, 
+                         @RequestHeader("Authorization") String token);
+    
+    @PostMapping("/auth/validate")
+    UserOut validateToken(@RequestHeader("Authorization") String token);
+}
 ```
 
 ## Order API
@@ -175,5 +309,10 @@ order-service/
 
     === "Postman"
         ![](./img/get_orderid.png){ width=100% }
+
+## Vídeo de Apresentação
+
+**Link do Vídeo:** [https://www.youtube.com/watch?v=dQw4w9WgXcQ](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+---
 
 > This MkDocs was created by [Ricardo Luz Carvalho](https://github.com/RicardolCarvalho)
