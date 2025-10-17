@@ -147,6 +147,6 @@ nav:
     - Exercício 1 - Product: ./exercicio1/main.md
     - Exercício 2 - Order: ./exercicio2/main.md
     - Exercício 3 - Exchange: ./exercicio3/main.md
-    - Exercício 4: ./exercicio4/main.md
+    - Exercício 4 - Jenkins: ./exercicio4/main.md
     - Exercício 5: ./exercicio5/main.md
   - Projeto: ./projeto/main.md

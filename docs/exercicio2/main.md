@@ -310,9 +310,4 @@ public interface FeignAuth {
     === "Postman"
         ![](./img/get_orderid.png){ width=100% }
 
-## Vídeo de Apresentação
-
-**Link do Vídeo:** [https://www.youtube.com/watch?v=dQw4w9WgXcQ](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
----
-
 > This MkDocs was created by [Ricardo Luz Carvalho](https://github.com/RicardolCarvalho)

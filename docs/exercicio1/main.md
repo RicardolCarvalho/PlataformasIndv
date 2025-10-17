@@ -234,9 +234,4 @@ The API should have the following endpoints:
     Response code: 204 (no content)
     ```
 
-## Vídeo de Apresentação
-
-### Link do Vídeo: [https://www.youtube.com/watch?v=dQw4w9WgXcQ](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
----
-
 > This MkDocs was created by [Ricardo Luz Carvalho](https://github.com/RicardolCarvalho)
