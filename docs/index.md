@@ -16,6 +16,7 @@
 - [x] Roteiro 2 - Data 07/10/2025
 - [x] Roteiro 3 - Data 15/10/2025
 - [x] Roteiro 4 - Data 17/10/2025
+- [x] Roteiro 5 - Data 24/10/2025
 - [ ] Projeto
 
 ## Diagrama
