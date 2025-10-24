@@ -6,17 +6,22 @@
     2025.5
 
 
-## Aluno
+## Alunos
 
 1. Ricardo Luz Carvalho
+2. João Gabriel Faus Faraco
+3. Vitor Trufino Raia
 
-## Entregas
+## Entregas Individuais - Ricardo Luz Carvalho
 
 - [x] Roteiro 1 - Data 24/09/2025
 - [x] Roteiro 2 - Data 07/10/2025
 - [x] Roteiro 3 - Data 15/10/2025
 - [x] Roteiro 4 - Data 17/10/2025
 - [x] Roteiro 5 - Data 24/10/2025
+
+## Entregas em Grupo
+
 - [ ] Projeto
 
 ## Diagrama
