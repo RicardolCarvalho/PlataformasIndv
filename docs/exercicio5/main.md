@@ -1,4 +1,4 @@
-# Exercício 5 - Kubernetes
+# Exercício 5 - MiniKube
 
 ## Repositórios Utilizados
 
@@ -7,6 +7,7 @@
 3. **[Gateway Service](https://github.com/RicardolCarvalho/gateway-service)** - API Gateway
 4. **[Product Service](https://github.com/RicardolCarvalho/product-service)** - Serviço de produtos
 5. **[Order Service](https://github.com/RicardolCarvalho/order-service)** - Serviço de pedidos
+6. **[Postgres Service](https://github.com/RicardolCarvalho/pma.25.2)** - Banco de Dados (gitignore)
 
 **Estrutura do projeto:**
 ```bash
@@ -360,4 +361,5 @@ api/
         app: order
     ```
 
+![MiniKube](./img/minikube.png)
 > This MkDocs was created by [Ricardo Luz Carvalho](https://github.com/RicardolCarvalho)
