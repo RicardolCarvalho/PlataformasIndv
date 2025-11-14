@@ -51,7 +51,7 @@ kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never --
 
 ### Resultado
 
-<video controls="" width="640" height="360" src="docs/projeto/video/TesteDeCarga.mp4"> Your browser does not support the video tag. </video>
+<video controls="" width="640" height="360" src="video/TesteDeCarga.mp4"> Your browser does not support the video tag. </video>
 
 ## 4. CI/CD com Jenkins
 

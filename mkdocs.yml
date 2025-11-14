@@ -149,4 +149,4 @@ nav:
     - Exercício 3 - Exchange: ./exercicio3/main.md
     - Exercício 4 - Jenkins: ./exercicio4/main.md
     - Exercício 5 - MiniKube: ./exercicio5/main.md
-  - Projeto: ./projeto/main.md
+  - Projeto: ./projeto/index.md
