@@ -51,7 +51,7 @@ kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never --
 
 ### Resultado
 
-<video controls="" width="640" height="360" src="docs/video/TesteDeCarga.mp4"> Your browser does not support the video tag. </video>
+<video controls="" width="640" height="360" src="docs/projeto/video/TesteDeCarga.mp4"> Your browser does not support the video tag. </video>
 
 ## 4. CI/CD com Jenkins
 
@@ -219,18 +219,10 @@ Baseado na previsão da AWS:
 - **Dias em operação:** ~25 dias (até o momento)
 - **Média diária:** US$ 2,27/dia
 
-### Conclusão da Análise
-
-O projeto está operando com **custos controlados** de aproximadamente **$57/mês**, significativamente abaixo da estimativa inicial. Isso se deve a:
-
-- Escolha adequada de tipos de instância (t2.small)
-- Configuração enxuta do cluster
-- Operação eficiente dos recursos
-
 [AWS Cost Explorer Console](https://console.aws.amazon.com/cost-management/home)  
 [Calculadora de Preços AWS](https://calculator.aws/#/)
 
-### Custo atual do projeto
+## Custo atual do projeto
 
 **Dashboard de Custo e Uso - Atualização:**
 
