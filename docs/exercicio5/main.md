@@ -154,6 +154,11 @@ api/
                       key: POSTGRES_PASSWORD
                 - name: DATABASE_URL
                   value: "jdbc:postgresql://postgres:5432/$(POSTGRES_DB)"
+                - name: JWT_SECRET_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: jwt-secrets
+                      key: JWT_SECRET_KEY
               resources:
                 requests:
                   memory: "200Mi"
